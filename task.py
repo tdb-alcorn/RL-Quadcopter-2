@@ -35,7 +35,7 @@ class Task():
         tilt_loss = np.square(self.sim.pose[4])
         z_vel_loss = np.square(self.sim.v[2])
         altitude_loss = np.square(self.sim.pose[2] - 10)
-        reward = 1e1*np.reciprocal(position_loss + epsilon) + 1e-1*np.reciprocal(rotor_speed_loss + epsilon) + 1e-1*np.reciprocal(altitude_loss + epsilon) # - 1e-2*tilt_loss - 1e-2*z_vel_loss
+        reward = 1e1*np.reciprocal(position_loss + epsilon) + 1e-1*np.reciprocal(rotor_speed_loss + epsilon) + 5e-1*np.reciprocal(altitude_loss + epsilon) # - 1e-2*tilt_loss - 1e-2*z_vel_loss
         return reward
 
     def step(self, rotor_speeds):
